@@ -19,9 +19,9 @@ public class GameKrestikNolik {
 
     public static void go() throws IOException {
         Scanner in = new Scanner(System.in);
-        System.out.println("Введите имя первого игрока");
+        System.out.println("Р’РІРµРґРёС‚Рµ РёРјСЏ РїРµСЂРІРѕРіРѕ РёРіСЂРѕРєР°");
         name1 = in.nextLine();
-        System.out.println("Введите имя второго игрока");
+        System.out.println("Р’РІРµРґРёС‚Рµ РёРјСЏ РІС‚РѕСЂРѕРіРѕ РёРіСЂРѕРєР°");
         name2 = in.nextLine();
         field = new char[][]{{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
         flag=true;
@@ -43,7 +43,7 @@ public class GameKrestikNolik {
                     }
                     proverka();
                 } else {
-                    System.out.println("Ячейка уже занята! Введите другие координаты");
+                    System.out.println("РЇС‡РµР№РєР° СѓР¶Рµ Р·Р°РЅСЏС‚Р°! Р’РІРµРґРёС‚Рµ РґСЂСѓРіРёРµ РєРѕРѕСЂРґРёРЅР°С‚С‹");
                 }
             } else {
                 System.out.println(name2 + "   Enter y (0..2):");
@@ -62,7 +62,7 @@ public class GameKrestikNolik {
                     }
                     proverka();
                 } else {
-                    System.out.println("Ячейка уже занята! Введите другие координаты");
+                    System.out.println("РЇС‡РµР№РєР° СѓР¶Рµ Р·Р°РЅСЏС‚Р°! Р’РІРµРґРёС‚Рµ РґСЂСѓРіРёРµ РєРѕРѕСЂРґРёРЅР°С‚С‹");
                 }
             }
         }
@@ -70,35 +70,35 @@ public class GameKrestikNolik {
 
     public static void proverka() throws IOException {
 
-        // Проверка по горизонтали 1 столбец
+        // РџСЂРѕРІРµСЂРєР° РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё 1 СЃС‚РѕР»Р±РµС†
         if ((field[0][0] == field[0][1] && field[0][1] == field[0][2] && field[0][2] == 'x') || (field[0][0] == field[0][1] && field[0][1] == field[0][2] && field[0][2] == '0')) {
             s = field[0][0];
             save(s);
-            // Проверка по горизонтали 2 столбец
+            // РџСЂРѕРІРµСЂРєР° РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё 2 СЃС‚РѕР»Р±РµС†
         } else if ((field[1][0] == field[1][1] && field[1][1] == field[1][2] && field[1][2] == 'x') || (field[1][0] == field[1][1] && field[1][1] == field[1][2] && field[1][2] == '0')) {
             s = field[1][0];
             save(s);
-            // Проверка по горизонтали 3 столбец
+            // РџСЂРѕРІРµСЂРєР° РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё 3 СЃС‚РѕР»Р±РµС†
         } else if ((field[2][0] == field[2][1] && field[2][1] == field[2][2] && field[2][2] == 'x') || (field[2][0] == field[2][1] && field[2][1] == field[2][2] && field[2][2] == '0')) {
             char s = field[2][0];
             save(s);
-            // Проверка по вертикали 1 строка
+            // РџСЂРѕРІРµСЂРєР° РїРѕ РІРµСЂС‚РёРєР°Р»Рё 1 СЃС‚СЂРѕРєР°
         } else if ((field[0][0] == field[1][0] && field[1][0] == field[2][0] && field[2][0] == 'x') || (field[0][0] == field[1][0] && field[1][0] == field[2][0] && field[2][0] == '0')) {
             char s = field[0][0];
             save(s);
-            // Проверка  по вертикали 2 строка
+            // РџСЂРѕРІРµСЂРєР°  РїРѕ РІРµСЂС‚РёРєР°Р»Рё 2 СЃС‚СЂРѕРєР°
         } else if ((field[0][1] == field[1][1] && field[1][1] == field[2][1] && field[2][1] == 'x') || (field[0][1] == field[1][1] && field[1][1] == field[2][1] && field[2][1] == '0')) {
             char s = field[0][1];
             save(s);
-            // Проверка по вертикали 3 строка
+            // РџСЂРѕРІРµСЂРєР° РїРѕ РІРµСЂС‚РёРєР°Р»Рё 3 СЃС‚СЂРѕРєР°
         } else if ((field[0][2] == field[1][2] && field[1][2] == field[2][2] && field[2][2] == 'x') || (field[0][2] == field[1][2] && field[1][2] == field[2][2] && field[2][2] == '0')) {
             char s = field[0][2];
             save(s);
-            // Проверка по диоганали
+            // РџСЂРѕРІРµСЂРєР° РїРѕ РґРёРѕРіР°РЅР°Р»Рё
         } else if ((field[0][0] == field[1][1] && field[1][1] == field[2][2] && field[2][2] == 'x') || (field[0][0] == field[1][1] && field[1][1] == field[2][2] && field[2][2] == '0')) {
             char s = field[0][0];
             save(s);
-            // Проверка по диоганали
+            // РџСЂРѕРІРµСЂРєР° РїРѕ РґРёРѕРіР°РЅР°Р»Рё
         } else if ((field[0][2] == field[1][1] && field[1][1] == field[2][0] && field[2][0] == 'x') || (field[0][2] == field[1][1] && field[1][1] == field[2][0] && field[2][0] == '0')) {
             char s = field[0][2];
             save(s);
@@ -109,22 +109,22 @@ public class GameKrestikNolik {
         OutputStream out = null;
         String pobeditel = null;
         if (s == 'x') {
-            pobeditel = "Победил " + name1 + "\n";
+            pobeditel = "РџРѕР±РµРґРёР» " + name1 + "\n";
         } else if (s == '0') {
-            pobeditel = "Победил " + name2 + "\n";
+            pobeditel = "РџРѕР±РµРґРёР» " + name2 + "\n";
         }
         try {
             out = new FileOutputStream("C:\\IdeaProjects\\KresikNolik\\src\\com\\krestikNolik\\save.txt", true);
             System.out.println("\n" + pobeditel);
             byte[] bytes = pobeditel.getBytes("cp1251");
             out.write(bytes);
-            System.out.println("Если хочешь сыграть ещё раз введи? \"да\" или \"нет\"");
+            System.out.println("Р•СЃР»Рё С…РѕС‡РµС€СЊ СЃС‹РіСЂР°С‚СЊ РµС‰С‘ СЂР°Р· РІРІРµРґРё? \"РґР°\" РёР»Рё \"РЅРµС‚\"");
             Scanner in = new Scanner(System.in);
             String xotelka = in.nextLine();
-            if (xotelka.equals("да")) {
+            if (xotelka.equals("РґР°")) {
                 go();
             } else {
-                System.out.println("Игра закончена");
+                System.out.println("РРіСЂР° Р·Р°РєРѕРЅС‡РµРЅР°");
                 System.exit(1);
             }
         } finally {
