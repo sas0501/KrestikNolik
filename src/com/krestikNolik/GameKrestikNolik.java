@@ -12,6 +12,11 @@ public class GameKrestikNolik {
     static String name1;
     static String name2;
     static char s;
+    static int a;
+    static int b;
+    static int c;
+    static int d;
+
 
     public static void main(String[] args) throws IOException {
         go();
@@ -24,47 +29,70 @@ public class GameKrestikNolik {
         System.out.println("Введите имя второго игрока");
         name2 = in.nextLine();
         field = new char[][]{{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
-        flag=true;
+        flag = true;
+        go1();
+    }
+
+    public static void go1() throws IOException {
+        Scanner in = new Scanner(System.in);
         while (true) {
             if (flag == true) {
                 System.out.println(name1 + "   Enter x (0..2):");
-                int a = in.nextInt();
+                a = in.nextInt();
                 System.out.println(name1 + "   Enter y (0..2):");
-                int b = in.nextInt();
-                if (field[a][b] == ' ') {
-                    flag = false;
-                    field[a][b] = 'x';
-                    for (int i = 0; i < 3; i++) {
-                        System.out.print("| ");
-                        for (int j = 0; j < 3; j++) {
-                            System.out.print(field[i][j] + " | ");
-                        }
-                        System.out.println();
-                    }
-                    proverka();
+                b = in.nextInt();
+                if (a >= 0 && a <= 2 && b >= 0 && b <= 2) {
+                    perviyProverka();
                 } else {
-                    System.out.println("Ячейка уже занята! Введите другие координаты");
+                    System.out.println("Координаты введены неправильно, введите координаты заново от 0 до 2");
+                    go1();
                 }
             } else {
                 System.out.println(name2 + "   Enter y (0..2):");
-                int c = in.nextInt();
+                c = in.nextInt();
                 System.out.println(name2 + "   Enter x (0..2):");
-                int d = in.nextInt();
-                if (field[c][d] == ' ') {
-                    flag = true;
-                    field[c][d] = '0';
-                    for (int i = 0; i < 3; i++) {
-                        System.out.print("| ");
-                        for (int j = 0; j < 3; j++) {
-                            System.out.print(field[i][j] + " | ");
-                        }
-                        System.out.println();
-                    }
-                    proverka();
+                d = in.nextInt();
+                if (c >= 0 && c <= 2 && d >= 0 && d <= 2) {
+                    vtoroyProverka();
                 } else {
-                    System.out.println("Ячейка уже занята! Введите другие координаты");
+                    System.out.println("Координаты введены неправильно, введите координаты заново от 0 до 2");
+                    go1();
                 }
             }
+        }
+    }
+
+    public static void perviyProverka() throws IOException {
+        if (field[a][b] == ' ') {
+            flag = false;
+            field[a][b] = 'x';
+            for (int i = 0; i < 3; i++) {
+                System.out.print("| ");
+                for (int j = 0; j < 3; j++) {
+                    System.out.print(field[i][j] + " | ");
+                }
+                System.out.println();
+            }
+            proverka();
+        } else {
+            System.out.println("Ячейка уже занята! Введите другие координаты");
+        }
+    }
+
+    public static void vtoroyProverka() throws IOException {
+        if (field[c][d] == ' ') {
+            flag = true;
+            field[c][d] = '0';
+            for (int i = 0; i < 3; i++) {
+                System.out.print("| ");
+                for (int j = 0; j < 3; j++) {
+                    System.out.print(field[i][j] + " | ");
+                }
+                System.out.println();
+            }
+            proverka();
+        } else {
+            System.out.println("Ячейка уже занята! Введите другие координаты");
         }
     }
 
